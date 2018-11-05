@@ -1,6 +1,8 @@
 import Promise from 'promise-polyfill';
 
-window.Promise = window.Promise || Promise;
+try {
+  window.Promise = window.Promise || Promise;
+} catch (e) {}
 
 export default (typeof fetch == 'function'
   ? fetch.bind()

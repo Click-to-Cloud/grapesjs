@@ -27685,6 +27685,8 @@ module.exports = {
 "use strict";
 
 
+var _underscore = __webpack_require__(/*! underscore */ "./node_modules/underscore/underscore.js");
+
 module.exports = {
   /**
    * Check if fullscreen mode is enabled
@@ -27738,11 +27740,16 @@ module.exports = {
     }
   },
   run: function run(editor, sender) {
+    var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
     this.sender = sender;
-    var pfx = this.enable(editor.getContainer());
+    var target = opts.target;
+
+    var targetEl = (0, _underscore.isElement)(target) ? target : document.querySelector(target);
+    var pfx = this.enable(targetEl || editor.getContainer());
     this.fsChanged = this.fsChanged.bind(this, pfx);
     document.addEventListener(pfx + 'fullscreenchange', this.fsChanged);
-    if (editor) editor.trigger('change:canvasOffset');
+    editor.trigger('change:canvasOffset');
   },
   stop: function stop(editor, sender) {
     if (sender && sender.set) sender.set('active', false);
@@ -38082,7 +38089,7 @@ module.exports = function () {
     plugins: plugins,
 
     // Will be replaced on build
-    version: '0.14.40',
+    version: '0.14.41',
 
     /**
      * Initialize the editor with passed options
@@ -42366,7 +42373,7 @@ var Selector = Backbone.Model.extend({
    * @private
    */
   escapeName: function escapeName(name) {
-    return ('' + name).trim().replace(/([^a-z0-9\w-]+)/gi, '-');
+    return ('' + name).trim().replace(/([^a-z0-9\w-\:]+)/gi, '-');
   }
 });
 
@@ -53677,7 +53684,9 @@ var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.Promise = window.Promise || _promisePolyfill2.default;
+try {
+  window.Promise = window.Promise || _promisePolyfill2.default;
+} catch (e) {}
 
 exports.default = typeof fetch == 'function' ? fetch.bind() : function (url, options) {
   return new _promisePolyfill2.default(function (res, rej) {
