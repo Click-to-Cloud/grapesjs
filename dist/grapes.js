@@ -32245,7 +32245,8 @@ var Component = Backbone.Model.extend(_Styleable2.default).extend({
       if (model.collection) {
         tb.push({
           attributes: { class: 'fa fa-arrow-up' },
-          command: 'select-parent'
+          command: 'select-parent',
+          tooltip: 'Select Parent'
         });
       }
       if (model.get('draggable')) {
@@ -32255,19 +32256,22 @@ var Component = Backbone.Model.extend(_Styleable2.default).extend({
             draggable: true
           },
           //events: hasDnd(this.em) ? { dragstart: 'execCommand' } : '',
-          command: 'tlb-move'
+          command: 'tlb-move',
+          tooltip: 'Move'
         });
       }
       if (model.get('copyable')) {
         tb.push({
           attributes: { class: 'fa fa-clone' },
-          command: 'tlb-clone'
+          command: 'tlb-clone',
+          tooltip: 'Clone'
         });
       }
       if (model.get('removable')) {
         tb.push({
           attributes: { class: 'fa fa-trash-o' },
-          command: 'tlb-delete'
+          command: 'tlb-delete',
+          tooltip: 'Delete'
         });
       }
       model.set('toolbar', tb);
@@ -35261,8 +35265,10 @@ module.exports = Backbone.View.extend({
 
     var id = model.get('id');
     var label = model.get('label');
+    var tooltip = model.get('tooltip');
     var pfx = editor.getConfig('stylePrefix');
     $el.addClass(pfx + 'toolbar-item');
+    tooltip && $el.attr('title', tooltip);
     id && $el.addClass(pfx + 'toolbar-item__' + id);
     label && $el.append(label);
     return this;

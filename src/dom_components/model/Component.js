@@ -574,7 +574,8 @@ const Component = Backbone.Model.extend(Styleable).extend(
         if (model.collection) {
           tb.push({
             attributes: { class: 'fa fa-arrow-up' },
-            command: 'select-parent'
+            command: 'select-parent',
+            tooltip: 'Select Parent'
           });
         }
         if (model.get('draggable')) {
@@ -584,19 +585,22 @@ const Component = Backbone.Model.extend(Styleable).extend(
               draggable: true
             },
             //events: hasDnd(this.em) ? { dragstart: 'execCommand' } : '',
-            command: 'tlb-move'
+            command: 'tlb-move',
+            tooltip: 'Move'
           });
         }
         if (model.get('copyable')) {
           tb.push({
             attributes: { class: 'fa fa-clone' },
-            command: 'tlb-clone'
+            command: 'tlb-clone',
+            tooltip: 'Clone'
           });
         }
         if (model.get('removable')) {
           tb.push({
             attributes: { class: 'fa fa-trash-o' },
-            command: 'tlb-delete'
+            command: 'tlb-delete',
+            tooltip: 'Delete'
           });
         }
         model.set('toolbar', tb);

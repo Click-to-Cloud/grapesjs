@@ -41,8 +41,10 @@ module.exports = Backbone.View.extend({
     const { editor, $el, model } = this;
     const id = model.get('id');
     const label = model.get('label');
+    const tooltip = model.get('tooltip');
     const pfx = editor.getConfig('stylePrefix');
     $el.addClass(`${pfx}toolbar-item`);
+    tooltip && $el.attr('title', tooltip);
     id && $el.addClass(`${pfx}toolbar-item__${id}`);
     label && $el.append(label);
     return this;
