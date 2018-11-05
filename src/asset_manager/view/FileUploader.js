@@ -4,13 +4,16 @@ import fetch from 'utils/fetch';
 
 module.exports = Backbone.View.extend(
   {
-    template: _.template(`
+    template: _.template(
+      `
   <form>
-    <div id="<%= pfx %>title"><%= title %></div>
-    <input type="file" id="<%= uploadId %>" name="file" accept="*/*" <%= disabled ? 'disabled' : '' %> <%= multiUpload ? 'multiple' : '' %>/>
+    <div id="<%= data.pfx %>title"><%= data.title %></div>
+    <input type="file" id="<%= data.uploadId %>" name="file" accept="*/*" <%= data.disabled ? 'disabled' : '' %> <%= data.multiUpload ? 'multiple' : '' %>/>
     <div style="clear:both;"></div>
   </form>
-  `),
+  `,
+      { variable: 'data' }
+    ),
 
     events: {},
 

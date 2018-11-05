@@ -3,34 +3,37 @@ import Backbone from 'backbone';
 var ClassTagView = require('./ClassTagView');
 
 module.exports = Backbone.View.extend({
-  template: template(`
-  <div id="<%= pfx %>up">
-    <div id="<%= pfx %>label"><%= label %></div>
-    <div id="<%= pfx %>status-c">
-      <span id="<%= pfx %>input-c">
-        <div class="<%= ppfx %>field <%= ppfx %>select">
-          <span id="<%= ppfx %>input-holder">
-            <select id="<%= pfx %>states">
-              <option value=""><%= statesLabel %></option>
+  template: template(
+    `
+  <div id="<%= data.pfx %>up">
+    <div id="<%= data.pfx %>label"><%= data.label %></div>
+    <div id="<%= data.pfx %>status-c">
+      <span id="<%= data.pfx %>input-c">
+        <div class="<%= data.ppfx %>field <%= data.ppfx %>select">
+          <span id="<%= data.ppfx %>input-holder">
+            <select id="<%= data.pfx %>states">
+              <option value=""><%= data.statesLabel %></option>
             </select>
           </span>
-          <div class="<%= ppfx %>sel-arrow">
-            <div class="<%= ppfx %>d-s-arrow"></div>
+          <div class="<%= data.ppfx %>sel-arrow">
+            <div class="<%= data.ppfx %>d-s-arrow"></div>
           </div>
         </div>
       </span>
     </div>
   </div>
-  <div id="<%= pfx %>tags-field" class="<%= ppfx %>field">
-    <div id="<%= pfx %>tags-c"></div>
-    <input id="<%= pfx %>new" />
-    <span id="<%= pfx %>add-tag" class="fa fa-plus"></span>
+  <div id="<%= data.pfx %>tags-field" class="<%= data.ppfx %>field">
+    <div id="<%= data.pfx %>tags-c"></div>
+    <input id="<%= data.pfx %>new" />
+    <span id="<%= data.pfx %>add-tag" class="fa fa-plus"></span>
   </div>
-  <div id="<%= pfx %>sel-help">
-    <div id="<%= pfx %>label"><%= selectedLabel %></div>
-    <div id="<%= pfx %>sel"></div>
+  <div id="<%= data.pfx %>sel-help">
+    <div id="<%= data.pfx %>label"><%= data.selectedLabel %></div>
+    <div id="<%= data.pfx %>sel"></div>
     <div style="clear:both"></div>
-  </div>`),
+  </div>`,
+    { variable: 'data' }
+  ),
 
   events: {},
 

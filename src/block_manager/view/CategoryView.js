@@ -2,13 +2,16 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 
 module.exports = Backbone.View.extend({
-  template: _.template(`
-  <div class="<%= pfx %>title">
-    <i class="<%= pfx %>caret-icon"></i>
-    <%= label %>
+  template: _.template(
+    `
+  <div class="<%= data.pfx %>title">
+    <i class="<%= data.pfx %>caret-icon"></i>
+    <%= data.label %>
   </div>
-  <div class="<%= pfx %>blocks-c"></div>
-  `),
+  <div class="<%= data.pfx %>blocks-c"></div>
+  `,
+    { variable: 'data' }
+  ),
 
   events: {},
 

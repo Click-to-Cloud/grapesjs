@@ -2,17 +2,20 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 
 module.exports = Backbone.View.extend({
-  template: _.template(`
-    <div class="<%= ppfx %>device-label"><%= deviceLabel %></div>
-    <div class="<%= ppfx %>field <%= ppfx %>select">
-      <span id="<%= ppfx %>input-holder">
-        <select class="<%= ppfx %>devices"></select>
+  template: _.template(
+    `
+    <div class="<%= data.ppfx %>device-label"><%= data.deviceLabel %></div>
+    <div class="<%= data.ppfx %>field <%= data.ppfx %>select">
+      <span id="<%= data.ppfx %>input-holder">
+        <select class="<%= data.ppfx %>devices"></select>
       </span>
-      <div class="<%= ppfx %>sel-arrow">
-        <div class="<%= ppfx %>d-s-arrow"></div>
+      <div class="<%= data.ppfx %>sel-arrow">
+        <div class="<%= data.ppfx %>d-s-arrow"></div>
       </div>
     </div>
-    <button style="display:none" class="<%= ppfx %>add-trasp">+</button>`),
+    <button style="display:none" class="<%= data.ppfx %>add-trasp">+</button>`,
+    { variable: 'data' }
+  ),
 
   events: {
     change: 'updateDevice'

@@ -3,11 +3,14 @@ import Backbone from 'backbone';
 var PropertiesView = require('./PropertiesView');
 
 module.exports = Backbone.View.extend({
-  template: _.template(`
-  <div class="<%= pfx %>title" data-sector-title>
-    <i id="<%= pfx %>caret" class="fa"></i>
-    <%= label %>
-  </div>`),
+  template: _.template(
+    `
+  <div class="<%= data.pfx %>title" data-sector-title>
+    <i id="<%= data.pfx %>caret" class="fa"></i>
+    <%= data.label %>
+  </div>`,
+    { variable: 'data' }
+  ),
 
   events: {
     'click [data-sector-title]': 'toggle'

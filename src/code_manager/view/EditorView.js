@@ -2,11 +2,14 @@ import { template } from 'underscore';
 import Backbone from 'backbone';
 
 module.exports = Backbone.View.extend({
-  template: template(`
-  <div class="<%= pfx %>editor" id="<%= pfx %><%= codeName %>">
-  	<div id="<%= pfx %>title"><%= label %></div>
-  	<div id="<%= pfx %>code"></div>
-  </div>`),
+  template: template(
+    `
+  <div class="<%= data.pfx %>editor" id="<%= data.pfx %><%= data.codeName %>">
+  	<div id="<%= data.pfx %>title"><%= data.label %></div>
+  	<div id="<%= data.pfx %>code"></div>
+  </div>`,
+    { variable: 'data' }
+  ),
 
   initialize(o) {
     this.config = o.config || {};

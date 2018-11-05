@@ -23197,7 +23197,7 @@ var _fetch2 = _interopRequireDefault(_fetch);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = _backbone2.default.View.extend({
-  template: _underscore2.default.template('\n  <form>\n    <div id="<%= pfx %>title"><%= title %></div>\n    <input type="file" id="<%= uploadId %>" name="file" accept="*/*" <%= disabled ? \'disabled\' : \'\' %> <%= multiUpload ? \'multiple\' : \'\' %>/>\n    <div style="clear:both;"></div>\n  </form>\n  '),
+  template: _underscore2.default.template('\n  <form>\n    <div id="<%= data.pfx %>title"><%= data.title %></div>\n    <input type="file" id="<%= data.uploadId %>" name="file" accept="*/*" <%= data.disabled ? \'disabled\' : \'\' %> <%= data.multiUpload ? \'multiple\' : \'\' %>/>\n    <div style="clear:both;"></div>\n  </form>\n  ', { variable: 'data' }),
 
   events: {},
 
@@ -24332,7 +24332,7 @@ var _backbone2 = _interopRequireDefault(_backbone);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = _backbone2.default.View.extend({
-  template: _underscore2.default.template('\n  <div class="<%= pfx %>title">\n    <i class="<%= pfx %>caret-icon"></i>\n    <%= label %>\n  </div>\n  <div class="<%= pfx %>blocks-c"></div>\n  '),
+  template: _underscore2.default.template('\n  <div class="<%= data.pfx %>title">\n    <i class="<%= data.pfx %>caret-icon"></i>\n    <%= data.label %>\n  </div>\n  <div class="<%= data.pfx %>blocks-c"></div>\n  ', { variable: 'data' }),
 
   events: {},
 
@@ -26204,7 +26204,7 @@ var _backbone2 = _interopRequireDefault(_backbone);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = _backbone2.default.View.extend({
-  template: (0, _underscore.template)('\n  <div class="<%= pfx %>editor" id="<%= pfx %><%= codeName %>">\n  \t<div id="<%= pfx %>title"><%= label %></div>\n  \t<div id="<%= pfx %>code"></div>\n  </div>'),
+  template: (0, _underscore.template)('\n  <div class="<%= data.pfx %>editor" id="<%= data.pfx %><%= data.codeName %>">\n  \t<div id="<%= data.pfx %>title"><%= data.label %></div>\n  \t<div id="<%= data.pfx %>code"></div>\n  </div>', { variable: 'data' }),
 
   initialize: function initialize(o) {
     this.config = o.config || {};
@@ -30876,7 +30876,7 @@ var _backbone2 = _interopRequireDefault(_backbone);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = _backbone2.default.View.extend({
-  template: _underscore2.default.template('\n    <div class="<%= ppfx %>device-label"><%= deviceLabel %></div>\n    <div class="<%= ppfx %>field <%= ppfx %>select">\n      <span id="<%= ppfx %>input-holder">\n        <select class="<%= ppfx %>devices"></select>\n      </span>\n      <div class="<%= ppfx %>sel-arrow">\n        <div class="<%= ppfx %>d-s-arrow"></div>\n      </div>\n    </div>\n    <button style="display:none" class="<%= ppfx %>add-trasp">+</button>'),
+  template: _underscore2.default.template('\n    <div class="<%= data.ppfx %>device-label"><%= data.deviceLabel %></div>\n    <div class="<%= data.ppfx %>field <%= data.ppfx %>select">\n      <span id="<%= data.ppfx %>input-holder">\n        <select class="<%= data.ppfx %>devices"></select>\n      </span>\n      <div class="<%= data.ppfx %>sel-arrow">\n        <div class="<%= data.ppfx %>d-s-arrow"></div>\n      </div>\n    </div>\n    <button style="display:none" class="<%= data.ppfx %>add-trasp">+</button>', { variable: 'data' }),
 
   events: {
     change: 'updateDevice'
@@ -38089,7 +38089,7 @@ module.exports = function () {
     plugins: plugins,
 
     // Will be replaced on build
-    version: '0.14.41',
+    version: '0.14.43',
 
     /**
      * Initialize the editor with passed options
@@ -42588,7 +42588,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ClassTagView = __webpack_require__(/*! ./ClassTagView */ "./src/selector_manager/view/ClassTagView.js");
 
 module.exports = _backbone2.default.View.extend({
-  template: (0, _underscore.template)('\n  <div id="<%= pfx %>up">\n    <div id="<%= pfx %>label"><%= label %></div>\n    <div id="<%= pfx %>status-c">\n      <span id="<%= pfx %>input-c">\n        <div class="<%= ppfx %>field <%= ppfx %>select">\n          <span id="<%= ppfx %>input-holder">\n            <select id="<%= pfx %>states">\n              <option value=""><%= statesLabel %></option>\n            </select>\n          </span>\n          <div class="<%= ppfx %>sel-arrow">\n            <div class="<%= ppfx %>d-s-arrow"></div>\n          </div>\n        </div>\n      </span>\n    </div>\n  </div>\n  <div id="<%= pfx %>tags-field" class="<%= ppfx %>field">\n    <div id="<%= pfx %>tags-c"></div>\n    <input id="<%= pfx %>new" />\n    <span id="<%= pfx %>add-tag" class="fa fa-plus"></span>\n  </div>\n  <div id="<%= pfx %>sel-help">\n    <div id="<%= pfx %>label"><%= selectedLabel %></div>\n    <div id="<%= pfx %>sel"></div>\n    <div style="clear:both"></div>\n  </div>'),
+  template: (0, _underscore.template)('\n  <div id="<%= data.pfx %>up">\n    <div id="<%= data.pfx %>label"><%= data.label %></div>\n    <div id="<%= data.pfx %>status-c">\n      <span id="<%= data.pfx %>input-c">\n        <div class="<%= data.ppfx %>field <%= data.ppfx %>select">\n          <span id="<%= data.ppfx %>input-holder">\n            <select id="<%= data.pfx %>states">\n              <option value=""><%= data.statesLabel %></option>\n            </select>\n          </span>\n          <div class="<%= data.ppfx %>sel-arrow">\n            <div class="<%= data.ppfx %>d-s-arrow"></div>\n          </div>\n        </div>\n      </span>\n    </div>\n  </div>\n  <div id="<%= data.pfx %>tags-field" class="<%= data.ppfx %>field">\n    <div id="<%= data.pfx %>tags-c"></div>\n    <input id="<%= data.pfx %>new" />\n    <span id="<%= data.pfx %>add-tag" class="fa fa-plus"></span>\n  </div>\n  <div id="<%= data.pfx %>sel-help">\n    <div id="<%= data.pfx %>label"><%= data.selectedLabel %></div>\n    <div id="<%= data.pfx %>sel"></div>\n    <div style="clear:both"></div>\n  </div>', { variable: 'data' }),
 
   events: {},
 
@@ -47322,7 +47322,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var PropertiesView = __webpack_require__(/*! ./PropertiesView */ "./src/style_manager/view/PropertiesView.js");
 
 module.exports = _backbone2.default.View.extend({
-  template: _underscore2.default.template('\n  <div class="<%= pfx %>title" data-sector-title>\n    <i id="<%= pfx %>caret" class="fa"></i>\n    <%= label %>\n  </div>'),
+  template: _underscore2.default.template('\n  <div class="<%= data.pfx %>title" data-sector-title>\n    <i id="<%= data.pfx %>caret" class="fa"></i>\n    <%= data.label %>\n  </div>', { variable: 'data' }),
 
   events: {
     'click [data-sector-title]': 'toggle'
